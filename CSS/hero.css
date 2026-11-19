@@ -1,0 +1,384 @@
+/* =========================================
+   CINEVERSE - HERO SECTION
+========================================= */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    min-height: 650px;
+    overflow: hidden;
+    background: #080910;
+}
+
+
+/* =========================================
+   HERO BACKGROUND IMAGE
+========================================= */
+
+.hero img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+}
+
+
+/* =========================================
+   CINEMATIC OVERLAY
+========================================= */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background: linear-gradient(
+        90deg,
+        rgba(5, 6, 15, 0.96) 0%,
+        rgba(5, 6, 15, 0.82) 25%,
+        rgba(5, 6, 15, 0.48) 48%,
+        rgba(5, 6, 15, 0.12) 75%,
+        rgba(5, 6, 15, 0.05) 100%
+    );
+}
+
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.hero-content {
+    position: absolute;
+    top: 47%;
+    left: 5%;
+
+    transform: translateY(-50%);
+    z-index: 2;
+
+    width: min(650px, 90%);
+    text-align: left;
+}
+
+
+/* =========================================
+   HERO LABEL
+========================================= */
+
+.hero-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+
+    letter-spacing: 5px;
+    text-transform: uppercase;
+
+    color: #A855F7;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   HERO TITLE
+========================================= */
+
+.hero-title {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: clamp(42px, 5.2vw, 82px);
+    font-weight: 900;
+    font-style: italic;
+
+    line-height: 0.95;
+    letter-spacing: -2.5px;
+    text-transform: uppercase;
+
+    margin-bottom: 24px;
+
+    background: linear-gradient(
+        180deg,
+        #FFFFFF 5%,
+        #F1E9FF 45%,
+        #C4A6FF 75%,
+        #8B5CF6 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter: drop-shadow(0 4px 12px rgba(139, 92, 246, 0.15));
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.hero-description {
+    font-family: Arial, sans-serif;
+    font-size: clamp(16px, 1.5vw, 22px);
+    font-weight: 400;
+
+    line-height: 1.5;
+    color: #D1D5DB;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================
+   GENRE
+========================================= */
+
+.hero-genre {
+    font-family: Arial, sans-serif;
+    font-size: clamp(15px, 1.35vw, 20px);
+    font-weight: 400;
+
+    letter-spacing: 0.3px;
+    color: #B8B8C8;
+
+    margin-bottom: 28px;
+}
+
+
+/* =========================================
+   RATING
+========================================= */
+
+.hero-rating {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(17px, 1.5vw, 23px);
+    font-weight: 700;
+
+    color: #FBBF24;
+
+    margin-bottom: 38px;
+}
+
+
+/* =========================================
+   HERO ACTIONS
+========================================= */
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+
+/* =========================================
+   COMMON BUTTON
+========================================= */
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 18px 30px;
+
+    border-radius: 12px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+
+    white-space: nowrap;
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* =========================================
+   WATCH BUTTON
+========================================= */
+
+.watch-btn {
+    color: #FFFFFF;
+
+    background: linear-gradient(
+        135deg,
+        #A855F7,
+        #6D28D9
+    );
+
+    border: 1px solid transparent;
+
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.25);
+}
+
+.watch-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.4);
+}
+
+
+/* =========================================
+   MY LIST BUTTON
+========================================= */
+
+.list-btn {
+    color: #FFFFFF;
+
+    background: rgba(10, 10, 20, 0.45);
+
+    border: 1px solid rgba(255, 255, 255, 0.55);
+
+    backdrop-filter: blur(8px);
+}
+
+.list-btn:hover {
+    background: rgba(139, 92, 246, 0.15);
+
+    border-color: #8B5CF6;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+
+    .hero {
+        min-height: 600px;
+    }
+
+    .hero img {
+        object-position: 65% center;
+    }
+
+    .hero-content {
+        width: 82%;
+        left: 5%;
+    }
+
+    .hero-title {
+        font-size: clamp(48px, 7vw, 72px);
+    }
+
+    .hero-description {
+        max-width: 520px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .hero {
+        height: 80vh;
+        min-height: 580px;
+    }
+
+    /* Keep the astronaut toward the right */
+    .hero img {
+        object-position: 68% center;
+    }
+
+    /* Darker text area on mobile */
+    .hero::before {
+        background: linear-gradient(
+            90deg,
+            rgba(5, 6, 15, 0.94) 0%,
+            rgba(5, 6, 15, 0.78) 45%,
+            rgba(5, 6, 15, 0.35) 100%
+        );
+    }
+
+    .hero-content {
+        top: 50%;
+        left: 6%;
+
+        width: 88%;
+        transform: translateY(-50%);
+    }
+
+    .hero-label {
+        font-size: 11px;
+        letter-spacing: 3px;
+        margin-bottom: 16px;
+    }
+
+    .hero-title {
+        font-size: clamp(36px, 10vw, 58px);
+        line-height: 0.98;
+        letter-spacing: -1.5px;
+        margin-bottom: 20px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 14px;
+    }
+
+    .hero-genre {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .hero-rating {
+        font-size: 17px;
+        margin-bottom: 25px;
+    }
+
+    .hero-actions {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .hero-btn {
+        padding: 13px 18px;
+        font-size: 14px;
+        border-radius: 9px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .hero {
+        min-height: 550px;
+    }
+
+    .hero-title {
+        font-size: 36px;
+        letter-spacing: -1px;
+    }
+
+    .hero-btn {
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+
+}

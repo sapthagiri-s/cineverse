@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CINEVERSE</title>
+    <meta name="description" content="CineVerse — discover trending movies, top-rated classics and binge-worthy series. Watch trailers and build your own watchlist.">
+    <meta name="theme-color" content="#080910">
+
+    <link rel="icon" href="Images/logo/favicon.ico" sizes="any">
+    <link rel="icon" href="Images/logo/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="Images/logo/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/hero.css">
+    <link rel="stylesheet" href="CSS/trending-movies.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/components.css">
+
+    <script src="JS/data.js" defer></script>
+    <script src="JS/database.js" defer></script>
+    <script src="JS/cineverse.js" defer></script>
+</head>
+
+<body data-page="home">
+
+    <a class="cv-skip-link" href="#main">Skip to content</a>
+
+    <!-- HEADER -->
+
+    <header class="header">
+        <nav class="navbar" aria-label="Primary">
+
+            <a class="logo-link" href="#home" aria-label="CineVerse home">
+                <img class="logo" src="Images/logo/cineverse-logo.svg" alt="CineVerse" width="220" height="58">
+            </a>
+
+            <div class="nav-links" id="primary-menu">
+                <a href="#home" class="active" aria-current="page">Home</a>
+                <a href="pages/movies.html">Movies</a>
+                <a href="pages/series.html">Series</a>
+                <a href="#categories">Categories</a>
+                <a href="pages/my-list.html">My List</a>
+
+                <form class="search-wrap" role="search" action="pages/search.html" method="get">
+                    <label class="cv-sr-only" for="site-search">Search movies and series</label>
+                    <input class="search" id="site-search" name="q" type="search" placeholder="🔍︎ Search..." autocomplete="off">
+                </form>
+            </div>
+
+            <div class="nav-actions">
+                <!-- NOTIFICATION -->
+                <div class="cv-menu-wrap">
+                    <button class="notification" type="button" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" />
+                            <path d="M10 21h4" />
+                        </svg>
+                        <span class="notification-dot"></span>
+                    </button>
+                </div>
+
+                <!-- PROFILE -->
+                <div class="cv-menu-wrap">
+                    <button class="profile-avatar" type="button" aria-label="Profile menu" aria-haspopup="true" aria-expanded="false">G</button>
+                </div>
+
+                <!-- MOBILE MENU -->
+                <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="primary-menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+
+        </nav>
+    </header>
+
+    <main id="main">
+
+    <section class="hero" id="home">
+        <img src="Images/movie1.jpg" alt="Beyond the Universe cinematic landscape">
+        <div class="hero-content">
+            <p class="hero-label">CINEVERSE ORIGINAL</p>
+            <h1 class="hero-title">
+                BEYOND THE<br>
+                UNIVERSE
+            </h1>
+            <p class="hero-description">When the galaxy falls silent, humanity must find its last hope.</p>
+            <p class="hero-genre">Sci-Fi · Adventure · Thriller</p>
+            <p class="hero-rating">★ 9.2 · 2h 18m</p>
+            <div class="hero-actions">
+                <button class="hero-btn watch-btn" type="button" data-play="beyond-the-universe">▶ Watch Now</button>
+                <button class="hero-btn list-btn" type="button" data-list-toggle="beyond-the-universe">＋ My List</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Continue Watching & Recently Viewed (filled by JS for each visitor) -->
+    <div id="cv-personal-rows"></div>
+
+    <section class="trending-section" id="trending">
+        <div class="section-header">
+
+            <div class="section-title">
+                <span class="title-accent"></span>
+                <h2>Trending Movies</h2>
+            </div>
+
+            <a href="pages/movies.html?collection=trending" class="view-all">
+                View All →
+            </a>
+
+        </div>
+        <div class="movie-category">
+            <div class="movie-grid">
+
+                <div class="movie-card" data-open="dune-part-two">
+                    <div class="movie-image">
+                        <img src="Images/Trending_movie/dune.jpg" alt="Dune: Part Two" loading="lazy">
+                        <span class="trending-badge">Trending</span>
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>Dune: Part Two</h4>
+                        <span class="movie-rating">★ 8.8</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="avatar-the-way-of-water">
+                    <div class="movie-image">
+                        <img src="Images/Trending_movie/avatar.jpg" alt="Avatar: The Way of Water" loading="lazy">
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>Avatar: The Way of Water</h4>
+                        <span class="movie-rating">★ 7.5</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="interstellar">
+                    <div class="movie-image">
+                        <img src="Images/Trending_movie/interstellar.jpg" alt="Interstellar" loading="lazy">
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>Interstellar</h4>
+                        <span class="movie-rating">★ 8.7</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="oppenheimer">
+                    <div class="movie-image">
+                        <img src="Images/Trending_movie/oppenheimer.jpg" alt="Oppenheimer" loading="lazy">
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>Oppenheimer</h4>
+                        <span class="movie-rating">★ 8.3</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="the-batman">
+                    <div class="movie-image">
+                        <img src="Images/Trending_movie/the-batman.webp" alt="The Batman" loading="lazy">
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>The Batman</h4>
+                        <span class="movie-rating">★ 7.8</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="inception">
+                    <div class="movie-image">
+                        <img src="Images/Trending_movie/inception.jpg" alt="Inception" loading="lazy">
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>Inception</h4>
+                        <span class="movie-rating">★ 8.8</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="popular-section" id="free">
+        <div class="section-header">
+
+            <div class="section-title">
+                <span class="title-accent"></span>
+                <h2>Free to Watch</h2>
+            </div>
+
+            <a href="pages/movies.html?collection=free" class="view-all">
+                View All →
+            </a>
+
+        </div>
+        <div class="movie-category">
+            <div class="movie-grid">
+
+                <div class="movie-card" data-open="big-buck-bunny">
+                    <div class="movie-image" data-placeholder="Big Buck Bunny">
+                        <img src="https://i.ytimg.com/vi/aqz-KE-bpKQ/maxresdefault.jpg" data-fallback="https://i.ytimg.com/vi/aqz-KE-bpKQ/hqdefault.jpg" alt="Big Buck Bunny" loading="lazy">
+                        <span class="trending-badge">Free</span>
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>Big Buck Bunny</h4>
+                        <span class="movie-rating">★ 6.4</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="sintel">
+                    <div class="movie-image" data-placeholder="Sintel">
+                        <img src="https://i.ytimg.com/vi/eRsGyueVLvQ/maxresdefault.jpg" data-fallback="https://i.ytimg.com/vi/eRsGyueVLvQ/hqdefault.jpg" alt="Sintel" loading="lazy">
+                        <span class="trending-badge">Free</span>
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>Sintel</h4>
+                        <span class="movie-rating">★ 7.4</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="tears-of-steel">
+                    <div class="movie-image" data-placeholder="Tears of Steel">
+                        <img src="https://i.ytimg.com/vi/R6MlUcmOul8/maxresdefault.jpg" data-fallback="https://i.ytimg.com/vi/R6MlUcmOul8/hqdefault.jpg" alt="Tears of Steel" loading="lazy">
+                        <span class="trending-badge">Free</span>
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>Tears of Steel</h4>
+                        <span class="movie-rating">★ 6.1</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="spring">
+                    <div class="movie-image" data-placeholder="Spring">
+                        <img src="https://i.ytimg.com/vi/WhWc3b3KhnY/maxresdefault.jpg" data-fallback="https://i.ytimg.com/vi/WhWc3b3KhnY/hqdefault.jpg" alt="Spring" loading="lazy">
+                        <span class="trending-badge">Free</span>
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>Spring</h4>
+                        <span class="movie-rating">★ 7.6</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="sprite-fright">
+                    <div class="movie-image" data-placeholder="Sprite Fright">
+                        <img src="https://i.ytimg.com/vi/_cMxraX_5RE/maxresdefault.jpg" data-fallback="https://i.ytimg.com/vi/_cMxraX_5RE/hqdefault.jpg" alt="Sprite Fright" loading="lazy">
+                        <span class="trending-badge">Free</span>
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>Sprite Fright</h4>
+                        <span class="movie-rating">★ 7.5</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="cosmos-laundromat">
+                    <div class="movie-image" data-placeholder="Cosmos Laundromat">
+                        <img src="https://i.ytimg.com/vi/Y-rmzh0PI3c/maxresdefault.jpg" data-fallback="https://i.ytimg.com/vi/Y-rmzh0PI3c/hqdefault.jpg" alt="Cosmos Laundromat" loading="lazy">
+                        <span class="trending-badge">Free</span>
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>Cosmos Laundromat</h4>
+                        <span class="movie-rating">★ 7.3</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="popular-section" id="popular">
+        <div class="section-header">
+
+            <div class="section-title">
+                <span class="title-accent"></span>
+                <h2>Popular Movies</h2>
+            </div>
+
+            <a href="pages/movies.html?collection=popular" class="view-all">
+                View All →
+            </a>
+
+        </div>
+        <div class="movie-category">
+            <div class="movie-grid">
+
+                <div class="movie-card" data-open="top-gun-maverick">
+                    <div class="movie-image">
+                        <img src="Images/popular-movie/tom-cur.jpg" alt="Top Gun: Maverick" loading="lazy">
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>Top Gun: Maverick</h4>
+                        <span class="movie-rating">★ 8.3</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="spider-man-across-the-spider-verse">
+                    <div class="movie-image">
+                        <img src="Images/popular-movie/spider-man.jpg" alt="Spider-Man: Across the Spider-Verse" loading="lazy">
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>Spider-Man: Across the Spider-Verse</h4>
+                        <span class="movie-rating">★ 8.6</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="the-dark-knight">
+                    <div class="movie-image">
+                        <img src="Images/popular-movie/the_dark.jpg" alt="The Dark Knight" loading="lazy">
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>The Dark Knight</h4>
+                        <span class="movie-rating">★ 9.0</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="john-wick-chapter-4">
+                    <div class="movie-image">
+                        <img src="Images/popular-movie/johnwick.jpg" alt="John Wick: Chapter 4" loading="lazy">
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>John Wick: Chapter 4</h4>
+                        <span class="movie-rating">★ 7.7</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="guardians-of-the-galaxy-vol-3">
+                    <div class="movie-image">
+                        <img src="Images/popular-movie/galaxy.jpg" alt="Guardians of the Galaxy Vol. 3" loading="lazy">
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>Guardians of the Galaxy Vol. 3</h4>
+                        <span class="movie-rating">★ 7.9</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="barbie">
+                    <div class="movie-image">
+                        <img src="Images/popular-movie/barbie.jpg" alt="Barbie" loading="lazy">
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>Barbie</h4>
+                        <span class="movie-rating">★ 7.0</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="top-rated-section" id="top-rated">
+        <div class="section-header">
+
+            <div class="section-title">
+                <span class="title-accent"></span>
+                <h2>Top Rated Movies</h2>
+            </div>
+
+            <a href="pages/movies.html?collection=top-rated" class="view-all">
+                View All →
+            </a>
+
+        </div>
+        <div class="movie-category">
+            <div class="movie-grid">
+
+                <div class="movie-card" data-open="the-shawshank-redemption">
+                    <div class="movie-image">
+                        <img src="Images/top-rated-movie/shawshank.jpg" alt="The Shawshank Redemption" loading="lazy">
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>The Shawshank Redemption</h4>
+                        <span class="movie-rating">★ 9.3</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="the-godfather">
+                    <div class="movie-image">
+                        <img src="Images/top-rated-movie/godfather.jpg" alt="The Godfather" loading="lazy">
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>The Godfather</h4>
+                        <span class="movie-rating">★ 9.2</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="the-dark-knight">
+                    <div class="movie-image">
+                        <img src="Images/top-rated-movie/dark-knight.jpg" alt="The Dark Knight" loading="lazy">
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>The Dark Knight</h4>
+                        <span class="movie-rating">★ 9.0</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="the-return-of-the-king">
+                    <div class="movie-image">
+                        <img src="Images/top-rated-movie/return-of-the-king.jpg" alt="The Lord of the Rings: The Return of the King" loading="lazy">
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>The Lord of the Rings: The Return of the King</h4>
+                        <span class="movie-rating">★ 9.0</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="schindlers-list">
+                    <div class="movie-image">
+                        <img src="Images/top-rated-movie/schindlers-list.jpg" alt="Schindler's List" loading="lazy">
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>Schindler's List</h4>
+                        <span class="movie-rating">★ 9.0</span>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-open="12-angry-men">
+                    <div class="movie-image">
+                        <img src="Images/top-rated-movie/12-angry-men.jpg" alt="12 Angry Men" loading="lazy">
+                    </div>
+                    <div class="movie-card-content">
+                        <h4>12 Angry Men</h4>
+                        <span class="movie-rating">★ 9.0</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="genre-section" id="categories">
+
+        <div class="section-header">
+
+            <div class="section-title">
+                <span class="title-accent"></span>
+                <h2>Explore by Genre</h2>
+            </div>
+
+            <a href="pages/movies.html" class="view-all">
+                View All →
+            </a>
+
+        </div>
+
+        <div class="movie-category">
+
+            <div class="genre-grid">
+
+                <!-- GENRE: ACTION -->
+
+                <a class="movie-card" href="pages/movies.html?genre=Action" aria-label="Browse Action movies">
+                    <div class="movie-image">
+                        <img src="Images/genre/action.jpg" alt="" loading="lazy">
+                    </div>
+
+                    <div class="movie-card-content">
+                        <h4>Action</h4>
+                    </div>
+                </a>
+
+                <!-- GENRE: ADVENTURE -->
+
+                <a class="movie-card" href="pages/movies.html?genre=Adventure" aria-label="Browse Adventure movies">
+                    <div class="movie-image">
+                        <img src="Images/genre/adventure.jpg" alt="" loading="lazy">
+                    </div>
+
+                    <div class="movie-card-content">
+                        <h4>Adventure</h4>
+                    </div>
+                </a>
+
+                <!-- GENRE: SCI-FI -->
+
+                <a class="movie-card" href="pages/movies.html?genre=Sci-Fi" aria-label="Browse Sci-Fi movies">
+                    <div class="movie-image">
+                        <img src="Images/genre/scifi.jpg" alt="" loading="lazy">
+                    </div>
+
+                    <div class="movie-card-content">
+                        <h4>Sci-Fi</h4>
+                    </div>
+                </a>
+
+                <!-- GENRE: THRILLER -->
+
+                <a class="movie-card" href="pages/movies.html?genre=Thriller" aria-label="Browse Thriller movies">
+                    <div class="movie-image">
+                        <img src="Images/genre/thriller.jpg" alt="" loading="lazy">
+                    </div>
+
+                    <div class="movie-card-content">
+                        <h4>Thriller</h4>
+                    </div>
+                </a>
+
+                <!-- GENRE: DRAMA -->
+
+                <a class="movie-card" href="pages/movies.html?genre=Drama" aria-label="Browse Drama movies">
+                    <div class="movie-image">
+                        <img src="Images/genre/drama.jpg" alt="" loading="lazy">
+                    </div>
+
+                    <div class="movie-card-content">
+                        <h4>Drama</h4>
+                    </div>
+                </a>
+
+                <!-- GENRE: COMEDY -->
+
+                <a class="movie-card" href="pages/movies.html?genre=Comedy" aria-label="Browse Comedy movies">
+                    <div class="movie-image">
+                        <img src="Images/genre/comedy.jpg" alt="" loading="lazy">
+                    </div>
+
+                    <div class="movie-card-content">
+                        <h4>Comedy</h4>
+                    </div>
+                </a>
+
+                <!-- GENRE: ROMANCE -->
+
+                <a class="movie-card" href="pages/movies.html?genre=Romance" aria-label="Browse Romance movies">
+                    <div class="movie-image">
+                        <img src="Images/genre/romance.jpg" alt="" loading="lazy">
+                    </div>
+
+                    <div class="movie-card-content">
+                        <h4>Romance</h4>
+                    </div>
+                </a>
+
+                <!-- GENRE: HORROR -->
+
+                <a class="movie-card" href="pages/movies.html?genre=Horror" aria-label="Browse Horror movies">
+                    <div class="movie-image">
+                        <img src="Images/genre/horror.jpg" alt="" loading="lazy">
+                    </div>
+
+                    <div class="movie-card-content">
+                        <h4>Horror</h4>
+                    </div>
+                </a>
+
+                <!-- GENRE: ANIMATION -->
+
+                <a class="movie-card" href="pages/movies.html?genre=Animation" aria-label="Browse Animation movies">
+                    <div class="movie-image">
+                        <img src="Images/genre/animation.jpg" alt="" loading="lazy">
+                    </div>
+
+                    <div class="movie-card-content">
+                        <h4>Animation</h4>
+                    </div>
+                </a>
+
+                <!-- GENRE: FANTASY -->
+
+                <a class="movie-card" href="pages/movies.html?genre=Fantasy" aria-label="Browse Fantasy movies">
+                    <div class="movie-image">
+                        <img src="Images/genre/fantasy.jpg" alt="" loading="lazy">
+                    </div>
+
+                    <div class="movie-card-content">
+                        <h4>Fantasy</h4>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    </main>
+
+    <!-- =========================================
+         CINEVERSE FOOTER
+    ========================================= -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- COLUMN 1: BRAND -->
+            <div class="footer-column footer-brand">
+
+                <img src="Images/logo/cineverse-logo.svg" alt="CineVerse" class="footer-logo" width="210" height="60" loading="lazy">
+
+                <p class="footer-description">
+                    Your universe of entertainment. Discover movies, series, and
+                    stories that take you beyond imagination.
+                </p>
+
+                <div class="social-links">
+
+                    <!-- INSTAGRAM -->
+                    <a href="https://www.instagram.com/" data-social="instagram" target="_blank" rel="noopener" aria-label="CineVerse on Instagram" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8" />
+                            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8" />
+                            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                        </svg>
+                    </a>
+
+                    <!-- YOUTUBE -->
+                    <a href="https://www.youtube.com/" data-social="youtube" target="_blank" rel="noopener" aria-label="CineVerse on YouTube" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <rect x="2.5" y="5" width="19" height="14" rx="4" stroke="currentColor" stroke-width="1.8" />
+                            <path d="M10 9L15 12L10 15V9Z" fill="currentColor" />
+                        </svg>
+                    </a>
+
+                    <!-- X -->
+                    <a href="https://x.com/" data-social="x" target="_blank" rel="noopener" aria-label="CineVerse on X" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M18.9 3H21L14.2 10.8L22 21H15.9L11.2 14.8L5.8 21H3.6L10.8 12.7L3.4 3H9.7L13.9 8.6L18.9 3Z"
+                                fill="currentColor" />
+                        </svg>
+                    </a>
+
+                    <!-- FACEBOOK -->
+                    <a href="https://www.facebook.com/" data-social="facebook" target="_blank" rel="noopener" aria-label="CineVerse on Facebook" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M13.5 22V13.2H16.5L17 9.8H13.5V7.6
+                                 C13.5 6.6 13.8 5.9 15.2 5.9H17.2V2.9
+                                 C16.3 2.8 15.4 2.7 14.4 2.7
+                                 C11.5 2.7 9.6 4.4 9.6 7.5V9.8H6.5V13.2
+                                 H9.6V22H13.5Z" />
+                        </svg>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- COLUMN 2: EXPLORE -->
+            <div class="footer-column">
+
+                <h3 class="footer-heading">Explore</h3>
+
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="pages/movies.html">Movies</a></li>
+                    <li><a href="pages/series.html">Series</a></li>
+                    <li><a href="#categories">Browse Genres</a></li>
+                    <li><a href="pages/my-list.html">My List</a></li>
+                </ul>
+
+            </div>
+
+
+            <!-- COLUMN 3: SUPPORT -->
+            <div class="footer-column">
+
+                <h3 class="footer-heading">Support</h3>
+
+                <ul class="footer-links">
+                    <li><a href="pages/help.html">Help Center</a></li>
+                    <li><a href="pages/contact.html">Contact Us</a></li>
+                    <li><a href="pages/help.html#faq">FAQ</a></li>
+                    <li><a href="pages/privacy.html">Privacy Policy</a></li>
+                </ul>
+
+            </div>
+
+
+            <!-- COLUMN 4: NEWSLETTER -->
+            <div class="footer-column footer-newsletter">
+
+                <h3 class="footer-heading">Stay in the Loop</h3>
+
+                <p class="newsletter-description">
+                    Get the latest movies, series, and exclusive updates
+                    delivered to your inbox.
+                </p>
+
+                <form class="newsletter-form" novalidate>
+                    <label class="cv-sr-only" for="newsletter-email">Email address</label>
+                    <input type="email" id="newsletter-email" name="email" placeholder="Enter your email address" autocomplete="email" required>
+
+                    <button type="submit">
+                        Subscribe
+                    </button>
+                </form>
+
+                <p class="newsletter-status" role="status" aria-live="polite"></p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+             FOOTER BOTTOM
+        ========================================= -->
+
+        <div class="footer-bottom">
+
+            <div>
+                <p class="copyright">
+                    © <span data-year>2026</span> CineVerse. All rights reserved.
+                </p>
+                <p class="footer-credit">Some poster images are provided by TMDB.</p>
+            </div>
+
+            <div class="footer-bottom-links">
+                <a href="pages/terms.html">Terms of Service</a>
+                <a href="pages/privacy.html">Privacy Policy</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineVerse | Help Center</title>
+    <meta name="description" content="Answers to common questions about CineVerse: search, trailers, My List and your profile.">
+    <meta name="theme-color" content="#080910">
+
+    <link rel="icon" href="../Images/logo/favicon.ico" sizes="any">
+    <link rel="icon" href="../Images/logo/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../Images/logo/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/movies.css">
+    <link rel="stylesheet" href="../CSS/components.css">
+
+    <script src="../JS/data.js" defer></script>
+    <script src="../JS/database.js" defer></script>
+    <script src="../JS/cineverse.js" defer></script>
+</head>
+
+<body data-page="help">
+
+    <a class="cv-skip-link" href="#main">Skip to content</a>
+
+    <!-- HEADER -->
+
+    <header class="header">
+        <nav class="navbar" aria-label="Primary">
+
+            <a class="logo-link" href="../index.html" aria-label="CineVerse home">
+                <img class="logo" src="../Images/logo/cineverse-logo.svg" alt="CineVerse" width="220" height="58">
+            </a>
+
+            <div class="nav-links" id="primary-menu">
+                <a href="../index.html">Home</a>
+                <a href="../pages/movies.html">Movies</a>
+                <a href="../pages/series.html">Series</a>
+                <a href="../index.html#categories">Categories</a>
+                <a href="../pages/my-list.html">My List</a>
+
+                <form class="search-wrap" role="search" action="../pages/search.html" method="get">
+                    <label class="cv-sr-only" for="site-search">Search movies and series</label>
+                    <input class="search" id="site-search" name="q" type="search" placeholder="🔍︎ Search..." autocomplete="off">
+                </form>
+            </div>
+
+            <div class="nav-actions">
+                <!-- NOTIFICATION -->
+                <div class="cv-menu-wrap">
+                    <button class="notification" type="button" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" />
+                            <path d="M10 21h4" />
+                        </svg>
+                        <span class="notification-dot"></span>
+                    </button>
+                </div>
+
+                <!-- PROFILE -->
+                <div class="cv-menu-wrap">
+                    <button class="profile-avatar" type="button" aria-label="Profile menu" aria-haspopup="true" aria-expanded="false">G</button>
+                </div>
+
+                <!-- MOBILE MENU -->
+                <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="primary-menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+
+        </nav>
+    </header>
+
+    <main id="main">
+
+        <!-- PAGE HERO -->
+
+        <section class="movies-hero">
+            <div class="movies-hero-content">
+                <span class="movies-eyebrow">WE'RE HERE TO HELP</span>
+                <h1>Help <span>Center</span></h1>
+                <p>Answers to common questions about browsing, trailers, My List and your profile.</p>
+
+                <form class="movies-search" role="search">
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+                    <label class="cv-sr-only" for="faq-search">Search help articles</label>
+                    <input id="faq-search" type="search" placeholder="Search help articles..." autocomplete="off" data-faq-search>
+                </form>
+            </div>
+        </section>
+
+
+        <div class="cv-content">
+
+            <div class="cv-help-grid">
+                <a class="cv-help-card" href="#faq">
+                    <span class="cv-help-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span>
+                    <h3>Getting started</h3>
+                    <p>Find titles, use search shortcuts and explore genres.</p>
+                </a>
+                <a class="cv-help-card" href="my-list.html">
+                    <span class="cv-help-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 4h10a1 1 0 0 1 1 1v15l-6-4-6 4V5a1 1 0 0 1 1-1z"/></svg></span>
+                    <h3>My List</h3>
+                    <p>Save titles and pick up where you left off.</p>
+                </a>
+                <a class="cv-help-card" href="#faq">
+                    <span class="cv-help-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg></span>
+                    <h3>Trailers & playback</h3>
+                    <p>Player controls, shortcuts and trailers that won't play.</p>
+                </a>
+                <a class="cv-help-card" href="contact.html">
+                    <span class="cv-help-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></span>
+                    <h3>Contact support</h3>
+                    <p>Can't find an answer? Send us a message.</p>
+                </a>
+            </div>
+
+            <section id="faq" aria-labelledby="faq-title">
+                <div class="cv-section-heading">
+                    <span class="movies-title-accent"></span>
+                    <h2 id="faq-title">Frequently Asked Questions</h2>
+                </div>
+
+                <div class="cv-faq">
+                <details class="cv-faq-item">
+                    <summary>What is CineVerse?</summary>
+                    <div class="cv-faq-answer"><p>CineVerse is your place to discover movies and series. Browse by genre, see what's trending, watch trailers, read what each title is about and save favourites to My List.</p></div>
+                </details>
+                <details class="cv-faq-item">
+                    <summary>How do I find a movie or series?</summary>
+                    <div class="cv-faq-answer"><p>Use the search box at the top of any page (press <strong>/</strong> or <strong>Ctrl K</strong>, or <strong>⌘ K</strong> on a Mac). You can search by title, actor, director, genre or year. You can also open <a href="movies.html">Movies</a> or <a href="series.html">Series</a> and filter by genre or sort by rating.</p></div>
+                </details>
+                <details class="cv-faq-item">
+                    <summary>Can I watch full movies on CineVerse?</summary>
+                    <div class="cv-faq-answer"><p>Yes. Titles marked <strong>Free</strong> play in full right here: open one and select <strong>Watch Now</strong>. If you stop part-way, the title appears under <strong>Continue Watching</strong> on the homepage so you can pick up where you left off. For other movies, open the title and select <strong>Where to Watch</strong> to see which streaming services have it.</p></div>
+                </details>
+                <details class="cv-faq-item">
+                    <summary>How do I watch a trailer?</summary>
+                    <div class="cv-faq-answer"><p>Open any title and select <strong>Play Trailer</strong>. Use the controls under the picture to pause, skip 10 seconds, change the volume or speed, or go full screen. Most trailers come from the studios' YouTube channels; if a studio doesn't allow its trailer on other websites, the player shows a <strong>Watch on YouTube</strong> button instead.</p></div>
+                </details>
+                <details class="cv-faq-item">
+                    <summary>How do I change the video quality or turn on subtitles?</summary>
+                    <div class="cv-faq-answer"><p>While a video plays, select the <strong>gear</strong> button at the bottom right and choose <strong>Auto</strong> or a quality such as 720p. Auto picks the best quality for your screen and connection. Select the <strong>subtitles</strong> button next to it to choose a language. CineVerse remembers your choices for next time. Trailers from YouTube use YouTube's own quality and caption settings.</p></div>
+                </details>
+                <details class="cv-faq-item">
+                    <summary>What are the player shortcuts?</summary>
+                    <div class="cv-faq-answer"><p><strong>Space</strong> or <strong>K</strong> play or pause, <strong>←</strong> and <strong>→</strong> skip back or forward 10 seconds, <strong>↑</strong> and <strong>↓</strong> change the volume, <strong>M</strong> mutes, <strong>F</strong> switches to full screen, <strong>C</strong> turns subtitles on or off and <strong>Esc</strong> closes the player. On a phone, tap to show the controls and double-tap the left or right side to skip 10 seconds.</p></div>
+                </details>
+                <details class="cv-faq-item">
+                    <summary>How does My List work?</summary>
+                    <div class="cv-faq-answer"><p>Select the <strong>＋</strong> button on any poster, or <strong>My List</strong> on a title's details. Saved titles appear on your <a href="my-list.html">My List</a> page. Your list is stored in this browser, so it stays after you close the tab.</p></div>
+                </details>
+                <details class="cv-faq-item">
+                    <summary>Why don't I see my list on another device?</summary>
+                    <div class="cv-faq-answer"><p>My List, your profile name and viewing history are stored on the device you're using. Using another browser or device, or clearing your browsing data, starts a fresh list.</p></div>
+                </details>
+                <details class="cv-faq-item">
+                    <summary>How do I change my profile name?</summary>
+                    <div class="cv-faq-answer"><p>Select your avatar in the top-right corner, then choose <strong>Add your name</strong> or <strong>Edit profile</strong>. Your avatar shows the first letter of your name.</p></div>
+                </details>
+                <details class="cv-faq-item">
+                    <summary>Can I share a title with friends?</summary>
+                    <div class="cv-faq-answer"><p>Yes. Open any title and select the share icon. On phones you'll see your device's share menu; on computers the link is copied so you can paste it anywhere.</p></div>
+                </details>
+                <details class="cv-faq-item">
+                    <summary>How do I clear my data?</summary>
+                    <div class="cv-faq-answer"><p>Select your avatar and choose <strong>Clear my data</strong>. This removes My List, recently viewed titles and your profile name from this browser.</p></div>
+                </details>
+                <details class="cv-faq-item">
+                    <summary>How do I unsubscribe from the newsletter?</summary>
+                    <div class="cv-faq-answer"><p>Every newsletter email includes an unsubscribe link. You can also <a href="contact.html?topic=account">contact us</a> and we'll remove your address.</p></div>
+                </details>
+                </div>
+
+                <div class="cv-empty" data-faq-empty hidden>
+                    <h3>No answers found</h3>
+                    <p>Try different words, or send us a message and we'll help.</p>
+                    <a class="cv-btn cv-btn-primary" href="contact.html">Contact Us</a>
+                </div>
+            </section>
+
+            <div class="cv-cta-band">
+                <div>
+                    <h3>Still need help?</h3>
+                    <p>Our team reads every message.</p>
+                </div>
+                <a class="cv-btn cv-btn-primary" href="contact.html">Contact Support</a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- =========================================
+         CINEVERSE FOOTER
+    ========================================= -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- COLUMN 1: BRAND -->
+            <div class="footer-column footer-brand">
+
+                <img src="../Images/logo/cineverse-logo.svg" alt="CineVerse" class="footer-logo" width="210" height="60" loading="lazy">
+
+                <p class="footer-description">
+                    Your universe of entertainment. Discover movies, series, and
+                    stories that take you beyond imagination.
+                </p>
+
+                <div class="social-links">
+
+                    <!-- INSTAGRAM -->
+                    <a href="https://www.instagram.com/" data-social="instagram" target="_blank" rel="noopener" aria-label="CineVerse on Instagram" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8" />
+                            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8" />
+                            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                        </svg>
+                    </a>
+
+                    <!-- YOUTUBE -->
+                    <a href="https://www.youtube.com/" data-social="youtube" target="_blank" rel="noopener" aria-label="CineVerse on YouTube" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <rect x="2.5" y="5" width="19" height="14" rx="4" stroke="currentColor" stroke-width="1.8" />
+                            <path d="M10 9L15 12L10 15V9Z" fill="currentColor" />
+                        </svg>
+                    </a>
+
+                    <!-- X -->
+                    <a href="https://x.com/" data-social="x" target="_blank" rel="noopener" aria-label="CineVerse on X" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M18.9 3H21L14.2 10.8L22 21H15.9L11.2 14.8L5.8 21H3.6L10.8 12.7L3.4 3H9.7L13.9 8.6L18.9 3Z"
+                                fill="currentColor" />
+                        </svg>
+                    </a>
+
+                    <!-- FACEBOOK -->
+                    <a href="https://www.facebook.com/" data-social="facebook" target="_blank" rel="noopener" aria-label="CineVerse on Facebook" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M13.5 22V13.2H16.5L17 9.8H13.5V7.6
+                                 C13.5 6.6 13.8 5.9 15.2 5.9H17.2V2.9
+                                 C16.3 2.8 15.4 2.7 14.4 2.7
+                                 C11.5 2.7 9.6 4.4 9.6 7.5V9.8H6.5V13.2
+                                 H9.6V22H13.5Z" />
+                        </svg>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- COLUMN 2: EXPLORE -->
+            <div class="footer-column">
+
+                <h3 class="footer-heading">Explore</h3>
+
+                <ul class="footer-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../pages/movies.html">Movies</a></li>
+                    <li><a href="../pages/series.html">Series</a></li>
+                    <li><a href="../index.html#categories">Browse Genres</a></li>
+                    <li><a href="../pages/my-list.html">My List</a></li>
+                </ul>
+
+            </div>
+
+
+            <!-- COLUMN 3: SUPPORT -->
+            <div class="footer-column">
+
+                <h3 class="footer-heading">Support</h3>
+
+                <ul class="footer-links">
+                    <li><a href="../pages/help.html">Help Center</a></li>
+                    <li><a href="../pages/contact.html">Contact Us</a></li>
+                    <li><a href="../pages/help.html#faq">FAQ</a></li>
+                    <li><a href="../pages/privacy.html">Privacy Policy</a></li>
+                </ul>
+
+            </div>
+
+
+            <!-- COLUMN 4: NEWSLETTER -->
+            <div class="footer-column footer-newsletter">
+
+                <h3 class="footer-heading">Stay in the Loop</h3>
+
+                <p class="newsletter-description">
+                    Get the latest movies, series, and exclusive updates
+                    delivered to your inbox.
+                </p>
+
+                <form class="newsletter-form" novalidate>
+                    <label class="cv-sr-only" for="newsletter-email">Email address</label>
+                    <input type="email" id="newsletter-email" name="email" placeholder="Enter your email address" autocomplete="email" required>
+
+                    <button type="submit">
+                        Subscribe
+                    </button>
+                </form>
+
+                <p class="newsletter-status" role="status" aria-live="polite"></p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+             FOOTER BOTTOM
+        ========================================= -->
+
+        <div class="footer-bottom">
+
+            <div>
+                <p class="copyright">
+                    © <span data-year>2026</span> CineVerse. All rights reserved.
+                </p>
+                <p class="footer-credit">Some poster images are provided by TMDB.</p>
+            </div>
+
+            <div class="footer-bottom-links">
+                <a href="../pages/terms.html">Terms of Service</a>
+                <a href="../pages/privacy.html">Privacy Policy</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

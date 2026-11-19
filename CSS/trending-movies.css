@@ -1,0 +1,362 @@
+
+/* =========================================
+   CINEVERSE - TRENDING MOVIES
+========================================= */
+
+.trending-section,.popular-section, .top-rated-section,.genre-section {
+    width: 100%;
+    padding: 35px 45px 50px;
+    background: #080910;
+}
+
+
+/* =========================================
+   SECTION HEADER
+========================================= */
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   SECTION TITLE
+========================================= */
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.title-accent {
+    width: 5px;
+    height: 38px;
+    background: #8B5CF6;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+}
+
+.section-title h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: #F8FAFC;
+    letter-spacing: -0.5px;
+}
+
+
+/* =========================================
+   VIEW ALL
+========================================= */
+
+.view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    text-decoration: none;
+    color: #A855F7;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.view-all:hover {
+    color: #C084FC;
+    transform: translateX(4px);
+}
+
+
+/* =========================================
+   MOVIE CATEGORY
+========================================= */
+
+.movie-category {
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   MOVIE GRID
+========================================= */
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.genre-grid{
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 22px;
+}
+
+/* =========================================
+   MOVIE CARD
+========================================= */
+
+.movie-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    overflow: hidden;
+
+    background: #14151D;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 15px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(139, 92, 246, 0.65);
+
+    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.15);
+}
+
+
+/* =========================================
+   MOVIE IMAGE
+========================================= */
+
+.movie-image {
+    position: relative;
+    width: 100%;
+    height: 235px;
+    overflow: hidden;
+}
+
+.movie-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    display: block;
+
+    transition: transform 0.5s ease;
+}
+
+.movie-card:hover .movie-image img {
+    transform: scale(1.07);
+}
+
+
+/* =========================================
+   MOVIE CARD CONTENT
+========================================= */
+
+.movie-card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 60px;
+    padding: 14px 12px;
+    gap: 8px;
+}
+
+.movie-card-content h4 {
+    color: #F8FAFC;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.movie-rating {
+    flex-shrink: 0;
+
+    color: #FBBF24;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   TRENDING BADGE
+========================================= */
+
+.trending-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+
+    padding: 5px 10px;
+
+    color: #FFFFFF;
+    background: linear-gradient(135deg, #A855F7, #7C3AED);
+
+    border-radius: 7px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .movie-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .genre-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .movie-image {
+        height: 220px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+    .trending-section,
+    .popular-section,
+    .top-rated-section,
+    .genre-section {
+        padding: 30px;
+    }
+
+    .movie-grid,
+    .genre-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .movie-image {
+        height: 200px;
+    }
+
+    .section-title h2 {
+        font-size: 24px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .trending-section,
+    .popular-section,
+    .top-rated-section,
+    .genre-section {
+        padding: 28px 20px 40px;
+    }
+
+    .section-header {
+        margin-bottom: 22px;
+    }
+
+    .section-title {
+        gap: 12px;
+    }
+
+    .title-accent {
+        height: 30px;
+        width: 4px;
+    }
+
+    .section-title h2 {
+        font-size: 21px;
+    }
+
+    .view-all {
+        font-size: 13px;
+    }
+
+    .movie-grid,
+    .genre-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .movie-image {
+        height: 210px;
+    }
+
+    .genre-grid .movie-image {
+        height: 140px;
+    }
+
+    .movie-card-content {
+        min-height: 55px;
+        padding: 10px;
+    }
+
+    .movie-card-content h4 {
+        font-size: 12px;
+    }
+
+    .movie-rating {
+        font-size: 11px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .trending-section,
+    .popular-section,
+    .top-rated-section,
+    .genre-section {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .movie-grid,
+    .genre-grid {
+        gap: 10px;
+    }
+
+    .movie-image {
+        height: 175px;
+    }
+
+    .movie-card-content {
+        padding: 8px;
+    }
+
+    .movie-card-content h4 {
+        font-size: 11px;
+    }
+
+}

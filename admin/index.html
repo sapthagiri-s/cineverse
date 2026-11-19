@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#0A0B14">
+    <title>CineVerse Admin</title>
+
+    <link rel="icon" href="../Images/logo/favicon.ico" sizes="any">
+    <link rel="icon" href="../Images/logo/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../CSS/components.css">
+    <link rel="stylesheet" href="../CSS/admin.css">
+
+    <!-- Site settings (database URL and key) and the titles to import -->
+    <script src="../JS/data.js" defer></script>
+    <!-- Supabase's library: sign-in, database and file uploads -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="../JS/admin.js" defer></script>
+</head>
+
+<body class="adm">
+
+    <header class="adm-top">
+        <a class="adm-brand" href="../index.html" title="Open the website">
+            <img src="../Images/logo/cineverse-logo.svg" alt="CineVerse" width="160" height="42">
+            <span>Admin</span>
+        </a>
+
+        <div class="adm-top-actions" data-signed-in hidden>
+            <span class="adm-user" data-user-email></span>
+            <a class="cv-btn cv-btn-ghost cv-btn-sm" href="../index.html" target="_blank" rel="noopener">View site</a>
+            <button class="cv-btn cv-btn-ghost cv-btn-sm" type="button" data-sign-out>Sign out</button>
+        </div>
+    </header>
+
+    <main class="adm-main" id="adm-main" tabindex="-1">
+        <div class="adm-loading" role="status">
+            <span class="adm-spinner" aria-hidden="true"></span>
+            Loading…
+        </div>
+    </main>
+
+    <noscript>
+        <p class="adm-noscript">The admin page needs JavaScript turned on.</p>
+    </noscript>
+
+</body>
+
+</html>

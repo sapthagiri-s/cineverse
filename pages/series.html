@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineVerse | Series</title>
+    <meta name="description" content="Browse series on CineVerse. Filter by genre, sort by rating and watch trailers.">
+    <meta name="theme-color" content="#080910">
+
+    <link rel="icon" href="../Images/logo/favicon.ico" sizes="any">
+    <link rel="icon" href="../Images/logo/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../Images/logo/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/movies.css">
+    <link rel="stylesheet" href="../CSS/components.css">
+
+    <script src="../JS/data.js" defer></script>
+    <script src="../JS/database.js" defer></script>
+    <script src="../JS/cineverse.js" defer></script>
+</head>
+
+<body data-page="series">
+
+    <a class="cv-skip-link" href="#main">Skip to content</a>
+
+    <!-- HEADER -->
+
+    <header class="header">
+        <nav class="navbar" aria-label="Primary">
+
+            <a class="logo-link" href="../index.html" aria-label="CineVerse home">
+                <img class="logo" src="../Images/logo/cineverse-logo.svg" alt="CineVerse" width="220" height="58">
+            </a>
+
+            <div class="nav-links" id="primary-menu">
+                <a href="../index.html">Home</a>
+                <a href="../pages/movies.html">Movies</a>
+                <a href="../pages/series.html" class="active" aria-current="page">Series</a>
+                <a href="../index.html#categories">Categories</a>
+                <a href="../pages/my-list.html">My List</a>
+
+                <form class="search-wrap" role="search" action="../pages/search.html" method="get">
+                    <label class="cv-sr-only" for="site-search">Search movies and series</label>
+                    <input class="search" id="site-search" name="q" type="search" placeholder="🔍︎ Search..." autocomplete="off">
+                </form>
+            </div>
+
+            <div class="nav-actions">
+                <!-- NOTIFICATION -->
+                <div class="cv-menu-wrap">
+                    <button class="notification" type="button" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" />
+                            <path d="M10 21h4" />
+                        </svg>
+                        <span class="notification-dot"></span>
+                    </button>
+                </div>
+
+                <!-- PROFILE -->
+                <div class="cv-menu-wrap">
+                    <button class="profile-avatar" type="button" aria-label="Profile menu" aria-haspopup="true" aria-expanded="false">G</button>
+                </div>
+
+                <!-- MOBILE MENU -->
+                <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="primary-menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+
+        </nav>
+    </header>
+
+    <main id="main">
+
+        <!-- PAGE HERO -->
+
+        <section class="movies-hero">
+            <div class="movies-hero-content">
+                <span class="movies-eyebrow">BINGE-WORTHY STORIES</span>
+                <h1>Explore <span>Series</span></h1>
+                <p>Find your next obsession, from mind-bending sci-fi to gripping crime dramas.</p>
+
+                <form class="movies-search" role="search">
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+                    <label class="cv-sr-only" for="page-search">Search series</label>
+                    <input id="page-search" name="q" type="search" placeholder="Search series..." autocomplete="off" data-page-search>
+                    <span class="search-shortcut" aria-hidden="true">⌘ K</span>
+                </form>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             SERIES BROWSER
+        ========================================== -->
+
+        <section class="movie-browser" aria-label="Browse series">
+
+            <!-- FILTER BAR -->
+            <div class="movie-browser-top">
+
+                <div class="movie-filters" data-genre-filters aria-label="Filter by genre">
+                    <button class="filter-btn active" type="button">All Series</button>
+                </div>
+
+                <!-- SORT -->
+                <div class="sort-wrapper">
+                    <label for="sort-select">Sort by</label>
+                    <select class="sort-select" id="sort-select" data-sort>
+                        <option value="popular">Most Popular</option>
+                        <option value="rating">Top Rated</option>
+                        <option value="newest">Newest</option>
+                        <option value="az">A–Z</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <!-- SECTION TITLE -->
+            <div class="movies-section-header">
+
+                <div class="movies-section-title">
+                    <span class="movies-title-accent"></span>
+                    <h2 data-results-title>All Series</h2>
+                </div>
+
+                <div class="cv-results-meta">
+                    <div class="cv-active-filters" data-active-filters hidden></div>
+                    <p data-results-count aria-live="polite"></p>
+                </div>
+
+            </div>
+
+            <!-- GRID (filled from JS/data.js) -->
+            <div class="movies-grid" data-browse-grid>
+                <noscript><p class="cv-empty">Please enable JavaScript to browse CineVerse.</p></noscript>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- =========================================
+         CINEVERSE FOOTER
+    ========================================= -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- COLUMN 1: BRAND -->
+            <div class="footer-column footer-brand">
+
+                <img src="../Images/logo/cineverse-logo.svg" alt="CineVerse" class="footer-logo" width="210" height="60" loading="lazy">
+
+                <p class="footer-description">
+                    Your universe of entertainment. Discover movies, series, and
+                    stories that take you beyond imagination.
+                </p>
+
+                <div class="social-links">
+
+                    <!-- INSTAGRAM -->
+                    <a href="https://www.instagram.com/" data-social="instagram" target="_blank" rel="noopener" aria-label="CineVerse on Instagram" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8" />
+                            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8" />
+                            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                        </svg>
+                    </a>
+
+                    <!-- YOUTUBE -->
+                    <a href="https://www.youtube.com/" data-social="youtube" target="_blank" rel="noopener" aria-label="CineVerse on YouTube" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <rect x="2.5" y="5" width="19" height="14" rx="4" stroke="currentColor" stroke-width="1.8" />
+                            <path d="M10 9L15 12L10 15V9Z" fill="currentColor" />
+                        </svg>
+                    </a>
+
+                    <!-- X -->
+                    <a href="https://x.com/" data-social="x" target="_blank" rel="noopener" aria-label="CineVerse on X" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M18.9 3H21L14.2 10.8L22 21H15.9L11.2 14.8L5.8 21H3.6L10.8 12.7L3.4 3H9.7L13.9 8.6L18.9 3Z"
+                                fill="currentColor" />
+                        </svg>
+                    </a>
+
+                    <!-- FACEBOOK -->
+                    <a href="https://www.facebook.com/" data-social="facebook" target="_blank" rel="noopener" aria-label="CineVerse on Facebook" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M13.5 22V13.2H16.5L17 9.8H13.5V7.6
+                                 C13.5 6.6 13.8 5.9 15.2 5.9H17.2V2.9
+                                 C16.3 2.8 15.4 2.7 14.4 2.7
+                                 C11.5 2.7 9.6 4.4 9.6 7.5V9.8H6.5V13.2
+                                 H9.6V22H13.5Z" />
+                        </svg>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- COLUMN 2: EXPLORE -->
+            <div class="footer-column">
+
+                <h3 class="footer-heading">Explore</h3>
+
+                <ul class="footer-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../pages/movies.html">Movies</a></li>
+                    <li><a href="../pages/series.html">Series</a></li>
+                    <li><a href="../index.html#categories">Browse Genres</a></li>
+                    <li><a href="../pages/my-list.html">My List</a></li>
+                </ul>
+
+            </div>
+
+
+            <!-- COLUMN 3: SUPPORT -->
+            <div class="footer-column">
+
+                <h3 class="footer-heading">Support</h3>
+
+                <ul class="footer-links">
+                    <li><a href="../pages/help.html">Help Center</a></li>
+                    <li><a href="../pages/contact.html">Contact Us</a></li>
+                    <li><a href="../pages/help.html#faq">FAQ</a></li>
+                    <li><a href="../pages/privacy.html">Privacy Policy</a></li>
+                </ul>
+
+            </div>
+
+
+            <!-- COLUMN 4: NEWSLETTER -->
+            <div class="footer-column footer-newsletter">
+
+                <h3 class="footer-heading">Stay in the Loop</h3>
+
+                <p class="newsletter-description">
+                    Get the latest movies, series, and exclusive updates
+                    delivered to your inbox.
+                </p>
+
+                <form class="newsletter-form" novalidate>
+                    <label class="cv-sr-only" for="newsletter-email">Email address</label>
+                    <input type="email" id="newsletter-email" name="email" placeholder="Enter your email address" autocomplete="email" required>
+
+                    <button type="submit">
+                        Subscribe
+                    </button>
+                </form>
+
+                <p class="newsletter-status" role="status" aria-live="polite"></p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+             FOOTER BOTTOM
+        ========================================= -->
+
+        <div class="footer-bottom">
+
+            <div>
+                <p class="copyright">
+                    © <span data-year>2026</span> CineVerse. All rights reserved.
+                </p>
+                <p class="footer-credit">Some poster images are provided by TMDB.</p>
+            </div>
+
+            <div class="footer-bottom-links">
+                <a href="../pages/terms.html">Terms of Service</a>
+                <a href="../pages/privacy.html">Privacy Policy</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
